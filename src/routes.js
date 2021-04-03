@@ -10,7 +10,6 @@ import RecoverView from 'src/views/auth/RecoverView';
 import RegisterView from 'src/views/auth/RegisterView';
 
 import HomeView from 'src/views/home/HomeView';
-
 import NotFoundView from 'src/views/errors/NotFoundView';
 
 const routes = [

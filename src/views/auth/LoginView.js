@@ -40,15 +40,15 @@ const LoginView = () => {
         <Container maxWidth="sm">
           <Formik
             initialValues={{
-              email: '',
-              password: ''
+              email: 'usuario@ftc.edu.br',
+              password: '123456'
             }}
             validationSchema={Yup.object().shape({
               email: Yup.string().email('Deve ser um email válido').max(255).required('Email obrigatório'),
               password: Yup.string().max(255).required('Senha obrigatória')
             })}
             onSubmit={() => {
-              navigate('/home', { replace: true });
+              navigate('/app/dashboard', { replace: true });
             }}
           >
             {({
@@ -107,20 +107,6 @@ const LoginView = () => {
                   value={values.password}
                   variant="outlined"
                 />
-                <Typography
-                  color="textSecondary"
-                  variant="body1"
-                >
-                  Esqueceu sua senha?
-                  {' '}
-                  <Link
-                    component={RouterLink}
-                    to="/recover"
-                    variant="h6"
-                  >
-                    Recuperar
-                  </Link>
-                </Typography>
                 <Box my={2}>
                   <Button
                     color="primary"
@@ -133,19 +119,18 @@ const LoginView = () => {
                     Faça seu login
                   </Button>
                 </Box>
-
                 <Typography
                   color="textSecondary"
                   variant="body1"
                 >
-                  Tem conta?
+                  Esqueceu sua senha?
                   {' '}
                   <Link
                     component={RouterLink}
-                    to="/register"
+                    to="/recover"
                     variant="h6"
                   >
-                    Criar
+                    Recuperar
                   </Link>
                 </Typography>
               </form>

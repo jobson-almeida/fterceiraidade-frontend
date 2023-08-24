@@ -21,9 +21,6 @@ const useStyles = makeStyles((theme) => ({
     height: '100%',
     paddingBottom: theme.spacing(3),
     paddingTop: theme.spacing(3)
-  },
-  texto: {
-    height: 44
   }
 }));
 
@@ -48,22 +45,20 @@ const RegisterView = () => {
               email: '',
               firstName: '',
               lastName: '',
-              cpf: '',
               password: '',
               policy: false
             }}
             validationSchema={
               Yup.object().shape({
-                email: Yup.string().email('Deve ser um email válido').max(255).required('Email obrigatório'),
-                firstName: Yup.string().max(255).required('Nome obrigatório'),
-                lastName: Yup.string().max(255).required('Sobrenome obrigatório'),
-                cpf: Yup.string().min(14).max(14).required('CPF obrigatório'),
-                password: Yup.string().max(255).required('Senha obrigatória'),
+                email: Yup.string().email('Deve ser um email válido').max(255).required('Email é obrigatório'),
+                firstName: Yup.string().max(255).required('Nome é obrigatório'),
+                lastName: Yup.string().max(255).required('Sobrenome é obrigatório'),
+                password: Yup.string().max(255).required('Senha é obrigatória'),
                 policy: Yup.boolean().oneOf([true], 'Este campo deve ser verificado')
               })
             }
             onSubmit={() => {
-              navigate('/', { replace: true });
+              navigate('/app/dashboard', { replace: true });
             }}
           >
             {({
@@ -88,7 +83,7 @@ const RegisterView = () => {
                     gutterBottom
                     variant="body2"
                   >
-                    Use um email válido e o seu CPF para criar nova conta
+                    Use seu e-mail para criar uma nova conta
                   </Typography>
                 </Box>
                 <TextField
@@ -128,19 +123,6 @@ const RegisterView = () => {
                   value={values.email}
                   variant="outlined"
                 />
-
-                <TextField
-                  error={Boolean(touched.cpf && errors.cpf)}
-                  fullWidth
-                  helperText={touched.cpf && errors.cpf}
-                  label="CPF"
-                  margin="normal"
-                  name="cpf"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  value={values.cpf}
-                  variant="outlined"
-                />
                 <TextField
                   error={Boolean(touched.password && errors.password)}
                   fullWidth
@@ -168,7 +150,7 @@ const RegisterView = () => {
                     color="textSecondary"
                     variant="body1"
                   >
-                    Eu li os
+                    Eu li o
                     {' '}
                     <Link
                       color="primary"

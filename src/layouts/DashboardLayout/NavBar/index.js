@@ -13,6 +13,7 @@ import {
 } from '@material-ui/core';
 import {
   BarChart as BarChartIcon,
+  //  Settings as SettingsIcon,
   ShoppingBag as ShoppingBagIcon,
   Users as UsersIcon
 } from 'react-feather';
@@ -55,6 +56,11 @@ const items = [
     icon: ShoppingBagIcon,
     title: 'Questões'
   },
+  // {
+  //   href: '/app/settings',
+  //   icon: SettingsIcon,
+  //   title: 'Settings'
+  // },
 ];
 
 const useStyles = makeStyles(() => ({
@@ -82,7 +88,6 @@ const NavBar = ({ onMobileClose, openMobile }) => {
     if (openMobile && onMobileClose) {
       onMobileClose();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname]);
 
   const content = (
@@ -167,7 +172,7 @@ NavBar.propTypes = {
 };
 
 NavBar.defaultProps = {
-  onMobileClose: () => {},
+  onMobileClose: () => { },
   openMobile: false
 };
 

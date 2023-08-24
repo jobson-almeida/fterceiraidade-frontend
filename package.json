@@ -23,20 +23,18 @@
     "react-perfect-scrollbar": "^1.5.8",
     "react-router": "^6.0.0-beta.0",
     "react-router-dom": "^6.0.0-beta.0",
+    "react-scripts": "^5.0.1",
     "uuid": "^8.3.0",
     "yup": "^0.32.9"
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "prettier": "^1.19.1",
-    "react-scripts": "^5.0.1"
+    "nth-check": "^2.0.1"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0",
     "react-dom": "^16.8.0 || ^17.0.0"
-  },
-  "resolutions": {
-    "nth-check": "2.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

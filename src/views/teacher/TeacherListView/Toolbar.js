@@ -5,31 +5,22 @@ import clsx from 'clsx';
 import {
   Box,
   Button,
-  Card,
-  CardContent,
-  TextField,
-  InputAdornment,
-  SvgIcon,
   makeStyles
 } from '@material-ui/core';
-import { Search as SearchIcon } from 'react-feather';
 
 const useStyles = makeStyles((theme) => ({
   root: {},
-  importButton: {
+  performanceButton: {
     marginRight: theme.spacing(1)
   },
-  exportButton: {
-    marginRight: theme.spacing(1)
-  }
 }));
 
-const Toolbar = ({ className, handleSearchChange, ...rest }) => {
+const Toolbar = ({ className, ...rest }) => {
   const classes = useStyles();
   const navigate = useNavigate();
 
   const addTeacher = () => {
-    navigate('/app/teachers', { replace: true });
+    navigate('/app/teacher-register', { replace: false });
   };
 
   return (
@@ -49,38 +40,12 @@ const Toolbar = ({ className, handleSearchChange, ...rest }) => {
           Adicionar docente
         </Button>
       </Box>
-      <Box mt={3}>
-        <Card>
-          <CardContent>
-            <Box maxWidth={500}>
-              <TextField
-                fullWidth
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <SvgIcon
-                        fontSize="small"
-                        color="action"
-                      >
-                        <SearchIcon />
-                      </SvgIcon>
-                    </InputAdornment>
-                  )
-                }}
-                placeholder="Procurar docente"
-                variant="outlined"
-              />
-            </Box>
-          </CardContent>
-        </Card>
-      </Box>
     </div>
   );
 };
 
 Toolbar.propTypes = {
-  className: PropTypes.string,
-  handleSearchChange: PropTypes.func
+  className: PropTypes.string
 };
 
 export default Toolbar;

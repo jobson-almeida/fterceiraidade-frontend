@@ -16,10 +16,10 @@ import {
 // dados do usuário logado
 const user = {
   avatar: '/static/images/avatars/avatar.png',
-  city: 'Itabuna',
-  unit: 'Itabuna',
+  city: 'Cidade',
+  unit: 'Cidade',
   name: 'Aaa Bbb',
-  email: 'usuario@ftc.edu.br'
+  email: 'usuario@fterceiridade.com'
 };
 
 const useStyles = makeStyles(() => ({

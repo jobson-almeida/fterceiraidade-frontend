@@ -1,168 +1,160 @@
 import React, { useState } from 'react';
-import clsx from 'clsx';
-import PropTypes from 'prop-types';
+import * as Yup from 'yup';
+import { Formik } from 'formik';
 import {
   Box,
   Button,
+  Container,
+  TextField,
+  Grid,
   Card,
-  CardContent,
   CardHeader,
   Divider,
-  Grid,
-  TextField,
-  makeStyles
+  CardContent
 } from '@material-ui/core';
 
-const useStyles = makeStyles(() => ({
-  root: {}
-}));
-
-const StudentEditDetails = ({ className, ...rest }) => {
-  const classes = useStyles();
-
-  // dados do usuário selecionado
-  const [values, setValues] = useState({
+const StudentEditDetails = () => {
+  const [student] = useState({
     firstName: 'Aaa',
     lastName: 'Bbb',
-    email: 'usuario@ftc.edu.br',
-    phone: '73 98495-4119',
-    city: 'Itabuna',
-    unit: 'Itabuna'
+    email: 'usuario@fterceiridade.com',
+    phone: '00 98495-4119',
+    cpf: '123.456.789-00'
   });
 
-  const handleChange = (event) => {
-    setValues({
-      ...values,
-      [event.target.name]: event.target.value
-    });
-  };
-
   return (
-    <form
-      autoComplete="off"
-      noValidate
-      className={clsx(classes.root, className)}
-      {...rest}
-    >
+    <Container maxWidth="sm">
       <Card>
         <CardHeader
-          subheader="A informação pode ser editada"
-          title="Cadastro"
+          title="Editar discente"
+          subheader="As informações podem ser editadas"
+          titleTypographyProps={{ variant: 'h4' }}
         />
         <Divider />
-        <CardContent>
-          <Grid
-            container
-            spacing={3}
-          >
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
-              <TextField
-                fullWidth
-                label="Nome"
-                name="firstName"
-                disabled
-                value={values.firstName}
-                variant="outlined"
-              />
-            </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
-              <TextField
-                fullWidth
-                label="Sobrenome"
-                name="lastName"
-                disabled
-                value={values.lastName}
-                variant="outlined"
-              />
-            </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
-              <TextField
-                fullWidth
-                label="Email"
-                name="email"
-                onChange={handleChange}
-                required
-                value={values.email}
-                variant="outlined"
-              />
-            </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
-              <TextField
-                fullWidth
-                label="Telefone"
-                name="phone"
-                onChange={handleChange}
-                value={values.phone}
-                variant="outlined"
-              />
-            </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
-              <TextField
-                fullWidth
-                label="Cidade"
-                name="city"
-                onChange={handleChange}
-                required
-                value={values.city}
-                variant="outlined"
-              />
-            </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
-              <TextField
-                fullWidth
-                label="Unidade"
-                name="unit"
-                disabled
-                value={values.unit}
-                variant="outlined"
-              />
-            </Grid>
-          </Grid>
-        </CardContent>
-        <Divider />
-        <Box
-          display="flex"
-          justifyContent="flex-end"
-          p={2}
+        <Formik
+          initialValues={{
+            firstName: student.firstName,
+            lastName: student.lastName,
+            cpf: student.cpf,
+            email: student.email,
+            phone: student.phone
+          }}
+          validationSchema={
+              Yup.object().shape({
+                firstName: Yup.string().max(255).required('Nome obrigatório'),
+                lastName: Yup.string().max(255).required('Sobrenome obrigatório'),
+                email: Yup.string().email('Deve ser um email válido').max(255).required('Email obrigatório'),
+                phone: Yup.string().min(10, '99 99999-9999').max(15, 'Esse campo deve ter no máximo 15 caracteres')
+              })
+            }
+          onSubmit={(values) => {
+            // navigate('/app/students', { replace: false });
+            console.log(JSON.stringify(values, null, 2));
+          }}
         >
-          <Button
-            color="primary"
-            variant="contained"
-          >
-            Salvar
-          </Button>
-        </Box>
+          {({
+            errors,
+            handleBlur,
+            handleChange,
+            handleSubmit,
+            // isSubmitting,
+            touched,
+            values
+          }) => (
+            <form onSubmit={handleSubmit}>
+              <CardContent>
+                <TextField
+                  error={Boolean(touched.firstName && errors.firstName)}
+                  fullWidth
+                  required
+                  helperText={touched.firstName && errors.firstName}
+                  label="Nome"
+                  margin="normal"
+                  name="firstName"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  value={values.firstName}
+                  variant="outlined"
+                />
+                <TextField
+                  error={Boolean(touched.lastName && errors.lastName)}
+                  fullWidth
+                  required
+                  helperText={touched.lastName && errors.lastName}
+                  label="Sobrenome"
+                  margin="normal"
+                  name="lastName"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  value={values.lastName}
+                  variant="outlined"
+                />
+                <TextField
+                  error={Boolean(touched.email && errors.email)}
+                  fullWidth
+                  required
+                  helperText={touched.email && errors.email}
+                  label="Email"
+                  margin="normal"
+                  name="email"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  type="email"
+                  value={values.email}
+                  variant="outlined"
+                />
+                <Grid container spacing={3}>
+                  <Grid item xs>
+                    <TextField
+                      error={Boolean(touched.cpf && errors.cpf)}
+                      fullWidth
+                      required
+                      disabled
+                      helperText={touched.cpf && errors.cpf}
+                      label="CPF"
+                      margin="normal"
+                      name="cpf"
+                      onBlur={handleBlur}
+                      onChange={handleChange}
+                      value={values.cpf}
+                      variant="outlined"
+                    />
+                  </Grid>
+                  <Grid item xs>
+                    <TextField
+                      error={Boolean(touched.phone && errors.phone)}
+                      fullWidth
+                      helperText={touched.phone && errors.phone}
+                      label="Telefone"
+                      margin="normal"
+                      name="phone"
+                      onBlur={handleBlur}
+                      onChange={handleChange}
+                      type="phone"
+                      value={values.phone}
+                      variant="outlined"
+                    />
+                  </Grid>
+                </Grid>
+              </CardContent>
+              <Divider />
+              <Box my={2}>
+                <Button
+                  color="primary"
+                  fullWidth
+                  size="large"
+                  type="submit"
+                  variant="contained"
+                >
+                  Salvar
+                </Button>
+              </Box>
+            </form>
+          )}
+        </Formik>
       </Card>
-    </form>
+    </Container>
   );
-};
-
-StudentEditDetails.propTypes = {
-  className: PropTypes.string
 };
 
 export default StudentEditDetails;

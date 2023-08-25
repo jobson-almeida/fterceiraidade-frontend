@@ -5,8 +5,7 @@ import {
   makeStyles
 } from '@material-ui/core';
 import Page from 'src/components/Page';
-import Results from './Results';
-import Toolbar from './Toolbar';
+import Component from './Component';
 import data from './data';
 
 const useStyles = makeStyles((theme) => ({
@@ -20,12 +19,8 @@ const useStyles = makeStyles((theme) => ({
 
 const StudentListView = () => {
   const classes = useStyles();
-  const [search, setSearch] = useState('');
+  const [loading] = useState(false);
   const [students] = useState(data);
-
-  const handleSearchChange = (event) => {
-    setSearch(event.target.value);
-  };
 
   return (
     <Page
@@ -33,9 +28,8 @@ const StudentListView = () => {
       title="Discentes"
     >
       <Container maxWidth={false}>
-        <Toolbar onChange={handleSearchChange} />
         <Box mt={3}>
-          <Results search={search} students={students} />
+          <Component students={students} loading={loading} />
         </Box>
       </Container>
     </Page>

@@ -22,12 +22,13 @@ const ProfileDetails = ({ className, ...rest }) => {
 
   // dados do usuário logado
   const [values, setValues] = useState({
-    firstName: 'Aaa',
-    lastName: 'Bbb',
-    email: 'usuario@ftc.edu.br',
-    phone: '73 98495-4119',
-    city: 'Itabuna',
-    unit: 'Itabuna'
+    firstName: 'Usuario',
+    lastName: 'Silva',
+    cpf: '123.456.789-00',
+    email: 'usuario@fterceiridade.com',
+    phone: '00 93044-3097',
+    city: 'CIdade',
+    unit: 'CIdade'
   });
 
   const handleChange = (event) => {
@@ -62,9 +63,9 @@ const ProfileDetails = ({ className, ...rest }) => {
             >
               <TextField
                 fullWidth
+                required
                 label="Nome"
                 name="firstName"
-                disabled
                 value={values.firstName}
                 variant="outlined"
               />
@@ -76,9 +77,9 @@ const ProfileDetails = ({ className, ...rest }) => {
             >
               <TextField
                 fullWidth
+                required
                 label="Sobrenome"
                 name="lastName"
-                disabled
                 value={values.lastName}
                 variant="outlined"
               />
@@ -90,10 +91,25 @@ const ProfileDetails = ({ className, ...rest }) => {
             >
               <TextField
                 fullWidth
+                disabled
+                required
+                label="CPF"
+                name="cpf"
+                value={values.cpf}
+                variant="outlined"
+              />
+            </Grid>
+            <Grid
+              item
+              md={6}
+              xs={12}
+            >
+              <TextField
+                fullWidth
+                required
                 label="Email"
                 name="email"
                 onChange={handleChange}
-                required
                 value={values.email}
                 variant="outlined"
               />
@@ -119,24 +135,10 @@ const ProfileDetails = ({ className, ...rest }) => {
             >
               <TextField
                 fullWidth
+                required
                 label="Cidade"
                 name="city"
-                disabled
                 value={values.city}
-                variant="outlined"
-              />
-            </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
-              <TextField
-                fullWidth
-                label="Unidade"
-                name="unit"
-                disabled
-                value={values.unit}
                 variant="outlined"
               />
             </Grid>

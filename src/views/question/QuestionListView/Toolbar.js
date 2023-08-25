@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import Badge from '@material-ui/core/Badge';
@@ -7,6 +7,7 @@ import {
   Button,
   makeStyles
 } from '@material-ui/core';
+import { useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles(() => ({
   root: {},
@@ -14,10 +15,11 @@ const useStyles = makeStyles(() => ({
 
 const Toolbar = ({ className, items, ...rest }) => {
   const classes = useStyles();
-  const [item, setItem] = useState(0);
+  const navigate = useNavigate();
 
   const addQuestion = () => {
-    setItem(Math.max(item + 1, 0));
+    // setItem(Math.max(item + 1, 0));
+    navigate('/app/question-register', { replace: false });
   };
 
   return (
@@ -40,7 +42,7 @@ const Toolbar = ({ className, items, ...rest }) => {
           <Button
             color="primary"
             variant="contained"
-            onClick={addQuestion}
+            onClick={() => addQuestion()}
           >
             Adicionar questão
           </Button>

@@ -40,7 +40,7 @@ const LoginView = () => {
         <Container maxWidth="sm">
           <Formik
             initialValues={{
-              email: 'usuario@ftc.edu.br',
+              email: 'usuario@fterceiridade.com',
               password: '123456'
             }}
             validationSchema={Yup.object().shape({
@@ -48,7 +48,7 @@ const LoginView = () => {
               password: Yup.string().max(255).required('Senha obrigatória')
             })}
             onSubmit={() => {
-              navigate('/app/dashboard', { replace: true });
+              navigate('/app/home', { replace: true });
             }}
           >
             {({
@@ -64,14 +64,14 @@ const LoginView = () => {
                 <Box mb={3}>
                   <Typography
                     color="textPrimary"
-                    variant="h2"
+                    variant="h1"
                   >
                     Entrar
                   </Typography>
                   <Typography
                     color="textSecondary"
                     gutterBottom
-                    variant="body2"
+                    variant="body1"
                   >
                     Faça login na plataforma
                     {' '}
@@ -107,6 +107,20 @@ const LoginView = () => {
                   value={values.password}
                   variant="outlined"
                 />
+                <Typography
+                  color="textSecondary"
+                  variant="body1"
+                >
+                  Esqueceu sua senha?
+                  {' '}
+                  <Link
+                    component={RouterLink}
+                    to="/recover"
+                    variant="body1"
+                  >
+                    Recuperar
+                  </Link>
+                </Typography>
                 <Box my={2}>
                   <Button
                     color="primary"
@@ -119,18 +133,19 @@ const LoginView = () => {
                     Faça seu login
                   </Button>
                 </Box>
+
                 <Typography
                   color="textSecondary"
                   variant="body1"
                 >
-                  Esqueceu sua senha?
+                  Tem conta?
                   {' '}
                   <Link
                     component={RouterLink}
-                    to="/recover"
-                    variant="h6"
+                    to="/register"
+                    variant="body1"
                   >
-                    Recuperar
+                    Criar
                   </Link>
                 </Typography>
               </form>

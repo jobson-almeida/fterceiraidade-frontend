@@ -5,13 +5,16 @@ import { Formik } from 'formik';
 import {
   Box,
   Button,
-  Checkbox,
   Container,
-  FormHelperText,
   Link,
   TextField,
   Typography,
-  makeStyles
+  makeStyles,
+  FormControl,
+  MenuItem,
+  Radio,
+  FormControlLabel,
+  RadioGroup
 } from '@material-ui/core';
 import Page from 'src/components/Page';
 
@@ -21,7 +24,14 @@ const useStyles = makeStyles((theme) => ({
     height: '100%',
     paddingBottom: theme.spacing(3),
     paddingTop: theme.spacing(3)
-  }
+  },
+  texto: {
+    height: 44
+  },
+  selectCourse: {
+    marginTop: theme.spacing(1),
+    marginBottom: theme.spacing(1)
+  },
 }));
 
 const RegisterView = () => {
@@ -42,23 +52,32 @@ const RegisterView = () => {
         <Container maxWidth="sm">
           <Formik
             initialValues={{
+              firstname: '',
+              lastname: '',
+              cpf: '',
               email: '',
-              firstName: '',
-              lastName: '',
+              birth: '',
+              phone: '',
               password: '',
-              policy: false
+              course: '',
+              type: 'student'
             }}
             validationSchema={
               Yup.object().shape({
-                email: Yup.string().email('Deve ser um email válido').max(255).required('Email é obrigatório'),
-                firstName: Yup.string().max(255).required('Nome é obrigatório'),
-                lastName: Yup.string().max(255).required('Sobrenome é obrigatório'),
-                password: Yup.string().max(255).required('Senha é obrigatória'),
-                policy: Yup.boolean().oneOf([true], 'Este campo deve ser verificado')
+                firstname: Yup.string().max(255).required('Nome obrigatório'),
+                lastname: Yup.string().max(255).required('Sobrenome obrigatório'),
+                cpf: Yup.string().min(14, 'Esse campo deve ter 14 caracteres').max(14, 'Esse campo deve ter no máximo 14 caracteres').required('CPF obrigatório'),
+                birth: Yup.string().max(10).required('Data do aniversário obrigatória'),
+                email: Yup.string().email('Deve ser um email válido').max(255).required('Email obrigatório'),
+                phone: Yup.string().min(10, '99 99999-9999').max(15, 'Esse campo deve ter no máximo 15 caracteres'),
+                password: Yup.string().max(255).required('Senha obrigatória'),
+                course: Yup.string(),
+                type: Yup.string(),
               })
             }
-            onSubmit={() => {
-              navigate('/app/dashboard', { replace: true });
+            onSubmit={(data) => {
+              // navigate('/', { replace: false });
+              console.log(data);
             }}
           >
             {({
@@ -74,45 +93,99 @@ const RegisterView = () => {
                 <Box mb={3}>
                   <Typography
                     color="textPrimary"
-                    variant="h2"
+                    variant="h1"
                   >
                     Criar nova conta
                   </Typography>
                   <Typography
                     color="textSecondary"
                     gutterBottom
-                    variant="body2"
+                    variant="body1"
                   >
-                    Use seu e-mail para criar uma nova conta
+                    Use email e CPF válidos para criar a nova conta
                   </Typography>
                 </Box>
+                <FormControl component="fieldset">
+                  <RadioGroup row aria-label="type" name="type" onChange={handleChange} defaultValue="student">
+                    <FormControlLabel value="student" control={<Radio />} label="Quero ser um estudante" />
+                    <FormControlLabel value="teacher" control={<Radio />} label="Quero ser um professor" />
+                  </RadioGroup>
+                </FormControl>
                 <TextField
-                  error={Boolean(touched.firstName && errors.firstName)}
+                  className={classes.selectCourse}
+                  disabled={values.type === 'student'}
+                  error={Boolean(touched.course && errors.course)}
                   fullWidth
-                  helperText={touched.firstName && errors.firstName}
+                  helperText={touched.course && errors.course}
+                  id="course"
+                  name="course"
+                  onChange={handleChange}
+                  select
+                  label="Área de conhecimento"
+                  value={values.type === 'teacher' ? values.course : ''}
+                  variant="outlined"
+                >
+                  <MenuItem value="" />
+                  <MenuItem value="sistemas de informacao">Sistemas de Informação</MenuItem>
+                  <MenuItem value="administracao">Administração</MenuItem>
+                  <MenuItem value="engenharia">Engenharia Civil</MenuItem>
+                </TextField>
+                <TextField
+                  error={Boolean(touched.firstname && errors.firstname)}
+                  fullWidth
+                  required
+                  helperText={touched.firstname && errors.firstname}
                   label="Nome"
                   margin="normal"
-                  name="firstName"
+                  name="firstname"
                   onBlur={handleBlur}
                   onChange={handleChange}
-                  value={values.firstName}
+                  value={values.firstname}
                   variant="outlined"
                 />
                 <TextField
-                  error={Boolean(touched.lastName && errors.lastName)}
+                  error={Boolean(touched.lastname && errors.lastname)}
                   fullWidth
-                  helperText={touched.lastName && errors.lastName}
+                  required
+                  helperText={touched.lastname && errors.lastname}
                   label="Sobrenome"
                   margin="normal"
-                  name="lastName"
+                  name="lastname"
                   onBlur={handleBlur}
                   onChange={handleChange}
-                  value={values.lastName}
+                  value={values.lastname}
+                  variant="outlined"
+                />
+                <TextField
+                  error={Boolean(touched.cpf && errors.cpf)}
+                  fullWidth
+                  required
+                  helperText={touched.cpf && errors.cpf}
+                  label="CPF"
+                  margin="normal"
+                  name="cpf"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  value={values.cpf}
+                  variant="outlined"
+                />
+                <TextField
+                  error={Boolean(touched.birth && errors.birth)}
+                  fullWidth
+                  required
+                  helperText={touched.birth && errors.birth}
+                  label="Aniversário"
+                  margin="normal"
+                  name="birth"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  value={values.birth}
                   variant="outlined"
                 />
                 <TextField
                   error={Boolean(touched.email && errors.email)}
                   fullWidth
+                  required
                   helperText={touched.email && errors.email}
                   label="Email"
                   margin="normal"
@@ -124,8 +197,22 @@ const RegisterView = () => {
                   variant="outlined"
                 />
                 <TextField
+                  error={Boolean(touched.phone && errors.phone)}
+                  fullWidth
+                  helperText={touched.phone && errors.phone}
+                  label="Telefone"
+                  margin="normal"
+                  name="phone"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  type="phone"
+                  value={values.phone}
+                  variant="outlined"
+                />
+                <TextField
                   error={Boolean(touched.password && errors.password)}
                   fullWidth
+                  required
                   helperText={touched.password && errors.password}
                   label="Senha"
                   margin="normal"
@@ -136,42 +223,10 @@ const RegisterView = () => {
                   value={values.password}
                   variant="outlined"
                 />
-                <Box
-                  alignItems="center"
-                  display="flex"
-                  ml={-1}
-                >
-                  <Checkbox
-                    checked={values.policy}
-                    name="policy"
-                    onChange={handleChange}
-                  />
-                  <Typography
-                    color="textSecondary"
-                    variant="body1"
-                  >
-                    Eu li o
-                    {' '}
-                    <Link
-                      color="primary"
-                      component={RouterLink}
-                      to="#"
-                      underline="always"
-                      variant="h6"
-                    >
-                      Termos e Condições
-                    </Link>
-                  </Typography>
-                </Box>
-                {Boolean(touched.policy && errors.policy) && (
-                  <FormHelperText error>
-                    {errors.policy}
-                  </FormHelperText>
-                )}
                 <Box my={2}>
                   <Button
                     color="primary"
-                    disabled={isSubmitting}
+                   // disabled={isSubmitting}
                     fullWidth
                     size="large"
                     type="submit"
@@ -189,7 +244,7 @@ const RegisterView = () => {
                   <Link
                     component={RouterLink}
                     to="/login"
-                    variant="h6"
+                    variant="body1"
                   >
                     Entrar
                   </Link>

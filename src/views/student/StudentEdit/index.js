@@ -9,7 +9,7 @@ import StudentEditDetails from './StudentEditDetails';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    // backgroundColor: theme.palette.background.dark,
+    backgroundColor: theme.palette.background.dark,
     minHeight: '100%',
     paddingBottom: theme.spacing(3),
     paddingTop: theme.spacing(3)
@@ -22,18 +22,14 @@ const StudentEdit = () => {
   return (
     <Page
       className={classes.root}
-      title="Discente - Editar"
+      title="Discente"
     >
-      {/* <Container maxWidth="lg"> */}
-      <Container maxWidth="false">
-        {/* <Grid
-          container
-          spacing={3}
-        > */}
+      <Container maxWidth="lg">
+        {/* <Container maxWidth="false"> */}
         <Grid
           container
           direction="row"
-          justify="center"
+          justifyContent="center"
           alignItems="flex-start"
           spacing={3}
         >

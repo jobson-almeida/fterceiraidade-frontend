@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Box,
   Container,
   makeStyles
 } from '@material-ui/core';
 import Page from 'src/components/Page';
-import Results from './Results';
-import Toolbar from './Toolbar';
+import Component from './Component';
 import data from './data';
 
 const useStyles = makeStyles((theme) => ({
@@ -20,12 +19,6 @@ const useStyles = makeStyles((theme) => ({
 
 const TeacherListView = () => {
   const classes = useStyles();
-  const [search, setSearch] = useState('');
-  const [teachers] = useState(data);
-
-  const handleSearchChange = (event) => {
-    setSearch(event.target.value);
-  };
 
   return (
     <Page
@@ -33,9 +26,8 @@ const TeacherListView = () => {
       title="Docentes"
     >
       <Container maxWidth={false}>
-        <Toolbar onChange={handleSearchChange} />
         <Box mt={3}>
-          <Results search={search} teachers={teachers} />
+          <Component teachers={data} loading={false} />
         </Box>
       </Container>
     </Page>

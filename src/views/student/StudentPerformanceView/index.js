@@ -6,8 +6,8 @@ import {
 } from '@material-ui/core';
 import Page from 'src/components/Page';
 import data from './data';
-import LearningPerformance from '../../reports/DashboardView/LearningPerformance';
-import AverageStudents from '../../reports/DashboardView/AverageStudents';
+import LearningPerformance from '../../dashboard/DashboardView/LearningPerformance';
+import AverageStudents from '../../dashboard/DashboardView/AverageStudents';
 
 const useStyles = makeStyles((theme) => ({
   root: {

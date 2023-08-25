@@ -1,36 +1,18 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import {
   Box,
   Button,
-  Card,
-  CardContent,
-  TextField,
-  InputAdornment,
-  SvgIcon,
   makeStyles
 } from '@material-ui/core';
-import { Search as SearchIcon } from 'react-feather';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {},
-  importButton: {
-    marginRight: theme.spacing(1)
-  },
-  exportButton: {
-    marginRight: theme.spacing(1)
-  }
 }));
 
-const Toolbar = ({ className, handleSearchChange, ...rest }) => {
+const Toolbar = ({ className, ...rest }) => {
   const classes = useStyles();
-  const navigate = useNavigate();
-
-  const addStudent = () => {
-    navigate('/app/students', { replace: true });
-  };
 
   return (
     <div
@@ -44,43 +26,17 @@ const Toolbar = ({ className, handleSearchChange, ...rest }) => {
         <Button
           color="primary"
           variant="contained"
-          onClick={addStudent}
+          // onClick={}
         >
-          Adicionar docente
+          Desempenho
         </Button>
-      </Box>
-      <Box mt={3}>
-        <Card>
-          <CardContent>
-            <Box maxWidth={500}>
-              <TextField
-                fullWidth
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <SvgIcon
-                        fontSize="small"
-                        color="action"
-                      >
-                        <SearchIcon />
-                      </SvgIcon>
-                    </InputAdornment>
-                  )
-                }}
-                placeholder="Procurar discente"
-                variant="outlined"
-              />
-            </Box>
-          </CardContent>
-        </Card>
       </Box>
     </div>
   );
 };
 
 Toolbar.propTypes = {
-  className: PropTypes.string,
-  handleSearchChange: PropTypes.func
+  className: PropTypes.string
 };
 
 export default Toolbar;

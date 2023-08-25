@@ -4,7 +4,7 @@ export default [
   {
     id: uuid(),
     questioning: 'Pergunta alguma coisa sert ert se sdfgsdfgs dfgs dfgs dfhgsdfhsfdh sdfhsdfhgsdf hsdrsrhys rtysj srtys tsrh stjsrtjs thsgre jyuddj drtjt ?',
-    type: 'objective',
+    type: 'objetiva',
     alternatives: [
       '(a) gasdg asdg s adgasd gasd',
       '(b) agasdga sd, as dgsad dsa',
@@ -17,7 +17,8 @@ export default [
       '(i) gsdf gahgjsfg fg'
     ],
     answer: 8,
-    course: 'asdg'
+    course: 'Administração',
+    image: '/static/images/avatars/avatar.png'
   },
   {
     id: uuid(),
@@ -29,7 +30,8 @@ export default [
       '(c) gsdf gahg sfg fg',
     ],
     answer: 2,
-    course: 'asdg'
+    course: 'Sistema de Informação',
+    image: '/static/images/blank.png'
   },
   {
     id: uuid(),
@@ -37,7 +39,8 @@ export default [
     type: 'subjetiva',
     alternatives: [],
     answer: '',
-    course: 'asdg'
+    course: 'Direito',
+    image: ''
   },
   {
     id: uuid(),
@@ -45,7 +48,8 @@ export default [
     type: 'subjetiva',
     alternatives: [],
     answer: '',
-    course: 'asdg'
+    course: 'Biomedicina',
+    image: '/static/images/blank.png'
   },
   {
     id: uuid(),
@@ -57,7 +61,8 @@ export default [
       '(c) gsdf gahg sfg fg',
     ],
     answer: 2,
-    course: 'asdg'
+    course: 'Sistema de Informação',
+    image: ''
   },
   {
     id: uuid(),
@@ -68,7 +73,8 @@ export default [
       '(b) gsdf gahg sfg fg',
     ],
     answer: 2,
-    course: 'asdg'
+    course: 'Engenharia civil',
+    image: '/static/images/blank.png'
   },
   {
     id: uuid(),
@@ -84,7 +90,8 @@ export default [
       '(g) aga ruw dgha sad dsa',
     ],
     answer: 2,
-    course: 'asdg'
+    course: 'Administração',
+    image: ''
   },
   {
     id: uuid(),
@@ -92,7 +99,8 @@ export default [
     type: 'subjetiva',
     alternatives: [],
     answer: '',
-    course: 'asdg'
+    course: 'Psicologia',
+    image: ''
   },
 
 ];

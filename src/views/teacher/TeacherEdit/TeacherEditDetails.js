@@ -17,7 +17,7 @@ const TeacherEditDetails = () => {
   const [teacher] = useState({
     firstName: 'Usuario',
     lastName: 'Silva',
-    email: 'usuario@fterceiridade.com',
+    email: 'usuario@fterceiraidade.com',
     phone: '00 93044-3097',
     cpf: '123.456.789-00'
   });

@@ -4,7 +4,7 @@ export default [
   {
     id: uuid(),
     avatarUrl: '/static/images/avatars/avatar.png',
-    email: 'aaa.bbb@fterceiridade.com',
+    email: 'aaa.bbb@fterceiraidade.com',
     firstname: 'Aaa Bbb',
     lastname: 'Absf',
     birth: '01/02/2000',
@@ -15,7 +15,7 @@ export default [
   {
     id: uuid(),
     avatarUrl: '/static/images/avatars/avatar.png',
-    email: 'aaa.bbb@fterceiridade.com',
+    email: 'aaa.bbb@fterceiraidade.com',
     firstname: 'Ddd Bbb',
     lastname: 'Absf',
     birth: '01/02/2000',
@@ -26,7 +26,7 @@ export default [
   {
     id: uuid(),
     avatarUrl: '',
-    email: 'aaa.bbb@fterceiridade.com',
+    email: 'aaa.bbb@fterceiraidade.com',
     firstname: 'Eaa Abb',
     lastname: 'Absf',
     birth: '01/02/2000',
@@ -37,7 +37,7 @@ export default [
   {
     id: uuid(),
     avatarUrl: '',
-    email: 'aaa.bbb@fterceiridade.com',
+    email: 'aaa.bbb@fterceiraidade.com',
     firstname: 'Faa Cbb',
     lastname: 'Absf',
     birth: '01/02/2000',
@@ -48,7 +48,7 @@ export default [
   {
     id: uuid(),
     avatarUrl: '/static/images/avatars/avatar.png',
-    email: 'aaa.bbb@fterceiridade.com',
+    email: 'aaa.bbb@fterceiraidade.com',
     firstname: 'Aaa Bbb',
     lastname: 'Absf',
     birth: '01/02/2000',
@@ -59,7 +59,7 @@ export default [
   {
     id: uuid(),
     avatarUrl: '',
-    email: 'aaa.bbb@fterceiridade.com',
+    email: 'aaa.bbb@fterceiraidade.com',
     firstname: 'Haa Abb',
     lastname: 'Absf',
     birth: '01/02/2000',
@@ -70,7 +70,7 @@ export default [
   {
     id: uuid(),
     avatarUrl: '/static/images/avatars/avatar.png',
-    email: 'aaa.bbb@fterceiridade.com',
+    email: 'aaa.bbb@fterceiraidade.com',
     firstname: 'Haa Ebb',
     lastname: 'Absf',
     birth: '01/02/2000',
@@ -81,7 +81,7 @@ export default [
   {
     id: uuid(),
     avatarUrl: '/static/images/avatars/avatar.png',
-    email: 'aaa.bbb@fterceiridade.com',
+    email: 'aaa.bbb@fterceiraidade.com',
     firstname: 'Saa Jbb',
     lastname: 'Absf',
     birth: '01/02/2000',
@@ -92,7 +92,7 @@ export default [
   {
     id: uuid(),
     avatarUrl: '',
-    email: 'aaa.bbb@fterceiridade.com',
+    email: 'aaa.bbb@fterceiraidade.com',
     firstname: 'Taa Jbb',
     lastname: 'Absf',
     birth: '01/02/2000',
@@ -103,7 +103,7 @@ export default [
   {
     id: uuid(),
     avatarUrl: '',
-    email: 'aaa.bbb@fterceiridade.com',
+    email: 'aaa.bbb@fterceiraidade.com',
     firstname: 'Eu Me',
     lastname: 'Absf',
     birth: '01/02/2000',

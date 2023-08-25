@@ -14,7 +14,7 @@ const Page = forwardRef(({
     >
       <Helmet>
         <title>
-          FTERCEIRIDADE
+          FTERCEIRAIDADE
           {' | '}
           {title}
         </title>

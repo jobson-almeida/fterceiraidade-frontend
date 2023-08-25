@@ -25,7 +25,7 @@ const ProfileDetails = ({ className, ...rest }) => {
     firstName: 'Usuario',
     lastName: 'Silva',
     cpf: '123.456.789-00',
-    email: 'usuario@fterceiridade.com',
+    email: 'usuario@fterceiraidade.com',
     phone: '00 93044-3097',
     city: 'CIdade',
     unit: 'CIdade'

@@ -19,7 +19,7 @@ const user = {
   city: 'Cidade',
   unit: 'Cidade',
   name: 'Aaa Bbb',
-  email: 'usuario@fterceiridade.com'
+  email: 'usuario@fterceiraidade.com'
 };
 
 const useStyles = makeStyles(() => ({

@@ -68,11 +68,10 @@ Iniciativa inspirada por um projeto real de faculdade que promove a inclusão so
  
 &nbsp;
 
-### Instalação
+### Instalação das dependências
 
 ```javascript
-# Instalar dependências
-$ npm install
+npm install
 ```
 
 &nbsp;
@@ -80,8 +79,7 @@ $ npm install
 ### Executando a api fake
 
 ```javascript
-# Iniciando o servidor
-$ npm run json-server
+npm run json-server
 ```
 
 &nbsp;
@@ -89,8 +87,7 @@ $ npm run json-server
 ### Executando o projeto
 
 ```javascript
-# Iniciando a aplicação
-$ npm run dev 
+npm run dev 
 ```
 
 &nbsp;

@@ -1,24 +1,11 @@
 "use client"
 import { TrashIcon } from "@heroicons/react/24/solid";
-import { addFrom, removeFrom } from "../lib/functions-for-filters";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 
 export default function CoursesListEdit({ data, ids, checkable = false, deletable = false, clear }) {
     const [checked, setChecked] = useState(false);
     const [courses, setCourses] = useState([])
-
-    if (clear) {
-        const ISSERVER = typeof window === "undefined";
-        if (!ISSERVER && localStorage.getItem("courses_assessments") !== null) {
-            localStorage.removeItem("courses_assessments");
-        }
-    }
-
-    useEffect(() => {
-        if (clear) setCourses(addFrom(data, ids))
-        if (!clear) setCourses(removeFrom(data, ids))
-    }, [data, ids])
 
     const handleChange = id => () => {
         //

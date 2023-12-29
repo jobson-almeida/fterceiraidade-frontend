@@ -76,6 +76,14 @@ npm install
 
 &nbsp;
 
+### Criação do arquivo .env.local com url base
+
+```dosini
+API_URL_BASE=http://localhost:8000
+```
+
+&nbsp;
+
 ### Executando a api fake
 
 ```javascript

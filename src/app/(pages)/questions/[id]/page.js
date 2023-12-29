@@ -1,4 +1,3 @@
-"use client"
 import QuestionOne from "@/app/components/question-one"
 
 async function getQuestion(id) {

@@ -15,6 +15,11 @@ export const preload = (id) => {
 
 export default async function Teacher({ id }) {
   const result = await getTeacher(id)
+
+  if (!result || result.firstname === undefined) {
+    throw new Error('Falhou')
+  }
+
   return (
     <>
       <ul>

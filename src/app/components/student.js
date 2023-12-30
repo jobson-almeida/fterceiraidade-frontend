@@ -16,7 +16,7 @@ export const preload = (id) => {
 export default async function Student({ id }) {
   const result = await getStudent(id)
 
-  if (result === null || result === undefined || result.address === undefined) {
+  if (!result || result.firstname === undefined) {
     throw new Error('Falhou')
   }
 

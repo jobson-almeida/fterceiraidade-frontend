@@ -1,20 +1,6 @@
-async function getClassroom(id) {
-  const response = await fetch(`http://localhost:3000/api/classrooms/${id}`, {
-    method: "GET",
-    headers: {
-      "Content-type": "application/json"
-    },
-    cache: "no-cache"
-  })
-  return response.json()
-}
+import Classroom, { preload } from "@/app/components/classroom"
 
 export default async function Page({ params }) {
-  const classroom = await getClassroom(params.id)
-  return (
-    <ul>
-      <li>{classroom.name}</li>
-      <li>{classroom.description}</li>
-      <li>{classroom.course}</li>
-    </ul>)
+  preload(params.id)
+  return <Classroom id={params.id} />
 }

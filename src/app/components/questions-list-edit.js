@@ -1,7 +1,7 @@
 "use client"
-import QuestionCard from "../../questions/_components/question-card"
+import QuestionCard from "./question-card"
 import { useEffect, useState } from "react";
-import { addFrom, removeFrom } from "../lib/functions-for-filters";
+import { addFrom, removeFrom } from "../utils/functions-for-filters";
 
 export default function QuestionsListEdit({ data, ids, clear, valiant }) {
     const [questions, setQuestions] = useState([])

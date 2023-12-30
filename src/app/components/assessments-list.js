@@ -1,11 +1,11 @@
 "use client"
 import { useCallback, useMemo, useState } from "react"
-import { headCells } from "../head-cells"
-import { getComparator, stableSort } from "../../../utils/sortable"
-import Pagination from "../../../components/structural/pagination"
+import { headCells } from "./head-cells-assessments"
+import { getComparator, stableSort } from "../utils/sortable"
+import Pagination from "./structural/pagination"
 import { ChartBarIcon, EyeIcon, TrashIcon } from "@heroicons/react/24/solid"
-import HeadTable from "../../../components/list-head"
-import Search from "../../../utils/search"
+import HeadTable from "./list-head"
+import Search from "../utils/search"
 import Link from "next/link"
 
 export default function AssessmentsList({ data }) {

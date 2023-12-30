@@ -1,5 +1,5 @@
 import React from "react";
-import ClassroomsList from "./_components/classroom-list";
+import ClassroomsList from "../../components/classroom-list";
 
 async function getClassrooms() {
   const response = await fetch('http://localhost:3000/api/classrooms', {
@@ -14,10 +14,5 @@ async function getClassrooms() {
 
 export default async function ClassroomsPage() {
   const classrooms = await getClassrooms();
-
-  return (
-    <div>
-      <ClassroomsList data={classrooms} />
-    </div>
-  );
+  return <ClassroomsList data={classrooms} />
 }

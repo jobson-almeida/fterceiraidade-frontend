@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from "react"
-import SimpleRow from "../../../components/simple-row"
+import SimpleRow from "./simple-row"
 
 export default function CoursesClassroomsListEdit({ courses, idc, classrooms, idr }) {
     const [filtered, setFiltered] = useState(classrooms)

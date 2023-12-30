@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
-import { headCells } from "./head-cells";
-import SkeletonAssessments from "./_components/skeleton-assessments";
+import { headCells } from "../../components/head-cells-assessments";
+import SkeletonAssessments from "../../components/skeleton-assessments";
 
 export default function Layout({ children }) {
     const totalHead = headCells.length

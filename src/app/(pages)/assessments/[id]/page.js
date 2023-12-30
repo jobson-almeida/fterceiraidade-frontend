@@ -1,6 +1,6 @@
 import Link from "next/link"
-import CoursesClassroomsListEdit from "../_components/courses-classrooms-list-edit"
-import QuestionsListEdit from "../_components/questions-list-edit"
+import CoursesClassroomsListEdit from "../../../components/courses-classrooms-list-edit"
+import QuestionsListEdit from "../../../components/questions-list-edit"
 
 async function getAssessment(id) {
   const response = await fetch(`http://localhost:3000/api/assessments/${id}`, {
@@ -48,9 +48,12 @@ async function getQuestions() {
 
 export default async function Page({ params }) {
   const [assessment] = await getAssessment(params.id)
-  const courses = await getCourses()
-  const classrooms = await getClassrooms()
-  const questions = await getQuestions()
+
+  const coursesData = getCourses()
+  const classroomsData = getClassrooms()
+  const questionsData = getQuestions()
+
+  const [courses, classrooms, questions] = await Promise.all([coursesData, classroomsData, questionsData])
 
   return (
     <>

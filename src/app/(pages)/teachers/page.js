@@ -1,4 +1,4 @@
-import TeachersList from "./_components/teachers-list"
+import TeachersList from "../../components/teachers-list"
 
 async function getTeachers() {
     const response = await fetch('http://localhost:3000/api/teachers', {
@@ -13,10 +13,5 @@ async function getTeachers() {
 
 export default async function TeachersPage() {
     const teachers = await getTeachers()
-
-    return (
-        <div>
-            <TeachersList data={teachers} />
-        </div>
-    )
+    return <TeachersList data={teachers} />
 }

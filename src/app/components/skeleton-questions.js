@@ -1,4 +1,4 @@
-import Skeleton from '../../../components/skeleton';
+import Skeleton from './skeleton';
 
 function Paper() {
   return (

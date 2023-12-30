@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Collapse from '../../../components/structural/collapse';
+import Collapse from './structural/collapse';
 import Link from 'next/link';
 import { PencilIcon, TrashIcon, ChartBarIcon, ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/24/solid';
-import blank from '../../../../../public/assets/images/blank.png'
+import blank from '../../../public/assets/images/blank.png'
 import Image from 'next/image';
 
 export default function QuestionCard({ checkable = true, deletable = true, valiant = false, question }) {

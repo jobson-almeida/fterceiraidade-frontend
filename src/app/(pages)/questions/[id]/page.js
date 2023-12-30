@@ -13,10 +13,5 @@ async function getQuestion(id) {
 
 export default async function Page({ params }) {
   const question = await getQuestion(params.id)
-
-  return (
-    <div>
-      <QuestionOne data={question} />
-    </div>
-  )
+  return <QuestionOne data={question} />
 } 

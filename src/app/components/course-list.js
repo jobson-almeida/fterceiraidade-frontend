@@ -1,6 +1,6 @@
 "use client"
 import { useCallback, useMemo, useState } from "react";
-import Pagination from "../../../components/structural/pagination";
+import Pagination from "./structural/pagination";
 import CourseCard from "./course-card";
 import Link from "next/link";
 

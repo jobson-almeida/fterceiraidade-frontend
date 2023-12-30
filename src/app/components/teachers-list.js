@@ -1,12 +1,12 @@
 "use client"
 import { useCallback, useMemo, useState } from "react"
-import { getComparator, stableSort } from "../../../utils/sortable"
-import Pagination from "../../../components/structural/pagination"
+import { getComparator, stableSort } from "../utils/sortable"
+import Pagination from "./structural/pagination"
 import { TrashIcon, EyeIcon } from "@heroicons/react/24/solid"
-import ListHead from "../../../components/list-head"
-import Search from "../../../utils/search"
+import ListHead from "./list-head"
+import Search from "../utils/search"
 import Link from "next/link"
-import { headCells } from "../head-cells"
+import { headCells } from "./head-cells-teachers"
 
 export default function TeachersList({ data }) {
     const [searchered, setSearchered] = useState([]);

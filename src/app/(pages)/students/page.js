@@ -1,4 +1,4 @@
-import StudentsList from "./_components/students-list"
+import StudentsList from "../../components/students-list"
 
 async function getStudents() {
     const response = await fetch('http://localhost:3000/api/students', {
@@ -19,10 +19,5 @@ async function getStudents() {
 
 export default async function StudentsPage() {
     const students = await getStudents()
-
-    return (
-        <div>
-            <StudentsList data={students} />
-        </div>
-    )
+    return <StudentsList data={students} />
 }

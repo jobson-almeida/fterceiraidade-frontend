@@ -12,7 +12,7 @@
   "dependencies": {
     "@floating-ui/react": "^0.26.4",
     "@heroicons/react": "^2.1.1",
-    "clsx": "^2.0.1",
+    "clsx": "^2.1.0",
     "deepmerge": "^4.3.1",
     "framer-motion": "^10.16.16",
     "json-server": "^0.17.4",

@@ -17,7 +17,7 @@ export default async function Student({ id }) {
   const result = await getStudent(id)
 
   if (result === null || result === undefined || result.address === undefined) {
-    throw new Error('Fails')
+    throw new Error('Falhou')
   }
 
   return (

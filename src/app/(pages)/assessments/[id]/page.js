@@ -46,19 +46,27 @@ async function getQuestions() {
   return response.json()
 }
 
-export default async function Page({ params }) {
-  const [assessment] = await getAssessment(params.id)
+export const preload = (id) => {
+  void getAssessment(id)
+}
 
+export default async function Page({ params }) {
+  const assessmentData = getAssessment(params.id)
   const coursesData = getCourses()
   const classroomsData = getClassrooms()
   const questionsData = getQuestions()
 
-  const [courses, classrooms, questions] = await Promise.all([coursesData, classroomsData, questionsData])
+  const [[assessment], courses, classrooms, questions] = await Promise.all([assessmentData, coursesData, classroomsData, questionsData])
+
+  if (!assessment || !courses || !classrooms || !questions) {
+    throw new Error('Falhou')
+  }
 
   return (
     <>
       <div className="flex flex-wrap flex-col mr-14">
         <section id="assessment">
+
           <div className="flex flex-row w-full max-w-[1024px] justify-center mt-4 font-bold">Descrição</div>
           <textarea className="flex w-full max-w-[1024px] bg-white border border-slate-300 rounded-md py-2 px-3
                   shadow-sm focus:outline-none focus:border-palette-500 focus:ring-palette-500 focus:ring-1 text-sm mt-2"
@@ -79,7 +87,7 @@ export default async function Page({ params }) {
               defaultValue={assessment.end_date}
             />
           </div>
-
+          {/* 
           <div className="backdrop:blur-sm bg-[rgba(255,255,255,0.7)] w-full max-w-[1024px] mt-6 mb-4">
             <div className="flex items-center flex-row justify-between border-spacing-2 min-h-[48px] px-2">
               <div className="flex flex-row items-center border-spacing-2">
@@ -87,16 +95,17 @@ export default async function Page({ params }) {
                 </div>
               </div>
             </div>
+          </div> */}
+
+          <div className="backdrop:blur-sm bg-gradient-to-r from-transparent via-slate-300 to-transparent w-full max-w-[1024px] mt-6 mb-4">
+            <div className="flex items-center flex-row justify-between border-spacing-2 min-h-[1px] px-2">
+            </div>
           </div>
 
           <CoursesClassroomsListEdit courses={courses} idc={assessment.courses} classrooms={classrooms} idr={assessment.classrooms} />
 
-          <div className="backdrop:blur-sm bg-[rgba(255,255,255,0.7)] w-full max-w-[1024px] mt-6">
-            <div className="flex items-center flex-row justify-between border-spacing-2 min-h-[48px] px-2">
-              <div className="flex flex-row items-center border-spacing-2">
-                <div className="font-bold text-slate-400">
-                </div>
-              </div>
+          <div className="backdrop:blur-sm bg-gradient-to-r from-transparent via-slate-300 to-transparent w-full max-w-[1024px] mt-6 mb-4">
+            <div className="flex items-center flex-row justify-between border-spacing-2 min-h-[1px] px-2">
             </div>
           </div>
 

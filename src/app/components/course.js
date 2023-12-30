@@ -18,8 +18,8 @@ export const preload = (id) => {
 export default async function Course({ id }) {
   const result = await getCourse(id)
 
-  if (result === null || result === undefined) {
-    throw new Error('Fails')
+  if (!result || result === null || result === undefined || result.description === undefined) {
+    throw new Error('Falhou')
   }
 
   return (

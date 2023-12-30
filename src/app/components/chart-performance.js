@@ -10,6 +10,7 @@ export default function ChartPerformance({ source, title }) {
   useEffect(() => {
     startTransition(async () => {
       const values = await ActionChart("chart_data");
+      if (!values) throw new Error('opa')
       setData(values)
     })
   }, [])

@@ -15,18 +15,21 @@ export const preload = (id) => {
 
 export default async function Student({ id }) {
   const result = await getStudent(id)
+
+  if (result === null || result === undefined || result.address === undefined) {
+    throw new Error('Fails')
+  }
+
   return (
-    <>
-      <ul>
-        <li>{result.avatar}</li>
-        <li>{result.firstname}</li>
-        <li>{result.lastname}</li>
-        <li>{result.email}</li>
-        <li>{result.phone}</li>
-        <li>{result.address.city}</li>
-        <li>{result.address.state}</li>
-        <li>{result.address.street}</li>
-      </ul>
-    </>
+    <ul>
+      <li>{result.avatar}</li>
+      <li>{result.firstname}</li>
+      <li>{result.lastname}</li>
+      <li>{result.email}</li>
+      <li>{result.phone}</li>
+      <li>{result.address?.city}</li>
+      <li>{result.address?.state}</li>
+      <li>{result.address?.street}</li>
+    </ul>
   )
 }

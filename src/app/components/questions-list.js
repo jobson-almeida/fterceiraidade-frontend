@@ -15,15 +15,17 @@ export default function QuestionsList({ data }) {
                     href={'/questions/register'}>nova questão
                 </Link>
             </div>
-            {data.map((question, index) => (
-                <div key={index}>
-                    <QuestionCard
-                        key={question.id}
-                        question={question}
-                        checkable={false}
-                    />
-                </div>
-            ))}
+            <div className="sticky">
+                {data.map((question, index) => (
+                    <div key={index}>
+                        <QuestionCard
+                            key={question.id}
+                            question={question}
+                            checkable={false}
+                        />
+                    </div>
+                ))}
+            </div>
         </>
     )
 }

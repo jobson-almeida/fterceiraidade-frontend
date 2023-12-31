@@ -1,5 +1,6 @@
 import Question, { preload } from "@/app/components/question"
-import { Suspense } from "react"
+
+
 /*
 async function getQuestion(id) {
   const response = await fetch(`http://localhost:3000/api/questions/${id}`, {
@@ -8,16 +9,13 @@ async function getQuestion(id) {
       "Content-type": "application/json"
     },
     cache: "no-cache"
-  })
+  }) 
   return response.json()
 }
 */
 export default function Page({ params }) {
   // const question = await getQuestion(params.id)
   //return <QuestionOne data={question} />
-  //preload(params.id)
-  return (
-    <Suspense>
-      <Question id={params.id} />
-    </Suspense>)
+  preload(params.id)
+  return <Question id={params.id} />
 } 

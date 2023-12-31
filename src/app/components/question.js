@@ -1,6 +1,6 @@
-"use client"
-import FieldsArrayEdit from './field-array-edit';
-import { useForm, useFormState } from 'react-hook-form';
+//"use client"
+//import FieldsArrayEdit from './field-array-edit';
+//import { useForm, useFormState } from 'react-hook-form';
 /*
 async function getQuestion(id) {
   const response = await fetch(`http://localhost:3000/api/questions/${id}`, {
@@ -18,16 +18,11 @@ async function getQuestion(id) {
 
 import { getQuestion } from "../utils/get-question"
 
-
 export const preload = (id) => {
   void getQuestion(id)
 }
 
-const teste = async (data) => {
-  await getQuestion(data);
-}
-
-export default function Question({ id }) {
+export default async function Question({ id }) {
   /*  const response = await fetch(`http://localhost:3000/api/questions/${id}`, {
       method: "GET",
       headers: {
@@ -36,30 +31,35 @@ export default function Question({ id }) {
       cache: "no-cache"
     })
     const question = await response.json()*/
+  const result = await getQuestion(id)
 
-
-  const {
-    control,
-    register,
-    handleSubmit,
-    reset,
-    getValues
-  } = useForm({
-    defaultValues: null
-  });
-
-  const { dirtyFields } = useFormState({
-    control
-  });
-
-  if (!dirtyFields || !dirtyFields.type) {
-    throw new Error("Falhou")
-  } else {
-    console.log(getValues())
+  if (!result || result === null) {
+    //throw new Error('Falhou')
   }
 
-  const onSubmit = (v) => console.log("data", v);
-
+  /*
+    const {
+      control,
+      register,
+      handleSubmit,
+      reset,
+      getValues
+    } = useForm({
+      defaultValues: null
+    });
+  
+    const { dirtyFields } = useFormState({
+      control
+    });
+  
+    if (!dirtyFields || !dirtyFields.type) {
+      throw new Error("Falhou")
+    } else {
+      console.log(getValues())
+    }
+  
+    const onSubmit = (v) => console.log("data", v);
+  */
 
   {/* <form onSubmit={handleSubmit(onSubmit)}>
       <FieldsArrayEdit
@@ -89,5 +89,5 @@ export default function Question({ id }) {
       </div>
   </form> */}
   //return <>{question.questions[0].id}</>
-  return <>question.questions[0].id</>
+  return <>{result.questions[0].id}</>
 } 

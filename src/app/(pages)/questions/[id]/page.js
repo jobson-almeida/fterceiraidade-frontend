@@ -16,6 +16,6 @@ async function getQuestion(id) {
 export default function Page({ params }) {
   // const question = await getQuestion(params.id)
   //return <QuestionOne data={question} />
-  preload(params.id)
+  //preload(params.id)
   return <Question id={params.id} />
 } 

@@ -4,7 +4,7 @@ import QuestionCard from "./question-card"
 
 export default function QuestionsList({ data }) {
     return (
-        <>
+        <div>
             <div className="fixed top-0 right-0 mt-5 mr-8 z-[9997]">
                 <Link className="relative overflow-hidden align-middle select-none font-sans font-bold text-center uppercase py-3 px-6 rounded-lg 
                        transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none       
@@ -15,7 +15,7 @@ export default function QuestionsList({ data }) {
                     href={'/questions/register'}>nova questão
                 </Link>
             </div>
-            <div className="sticky">
+            <div>
                 {data.map((question, index) => (
                     <div key={index}>
                         <QuestionCard
@@ -26,6 +26,6 @@ export default function QuestionsList({ data }) {
                     </div>
                 ))}
             </div>
-        </>
+        </div>
     )
 }

@@ -13,7 +13,7 @@ export default function FieldsArrayEdit({ control, register }) {
   });
 
   const hiddenFileInput = useRef(null);
-  const [image, setImage] = useState(fields[0].image);
+  const [image, setImage] = useState(fields[0]?.image);
 
   useEffect(() => {
     return () => {

@@ -22,7 +22,7 @@ export default function CoursesList({ data }) {
   );
 
   return (
-    <>
+    <div>
       <div className="fixed top-0 right-0 mt-5 mr-8 z-[9997]">
         <Link className="relative overflow-hidden align-middle select-none font-sans font-bold text-center uppercase py-3 px-6 rounded-lg 
                      transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none       
@@ -43,6 +43,6 @@ export default function CoursesList({ data }) {
           {count > 0 && <Pagination count={count} onChangePage={handlePage} />}
         </div>
       </div>
-    </>
+    </div>
   )
 }

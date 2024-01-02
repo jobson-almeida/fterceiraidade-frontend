@@ -3,13 +3,8 @@ import { getQuestion } from "../utils/get-question"
 import { useForm } from "react-hook-form"
 import FieldsArrayEdit from "./field-array-edit"
 
-export const preload = (id) => {
-  void getQuestion(id)
-}
-
 export default function Question({ id }) {
   const {
-    getValues,
     control,
     register,
     handleSubmit,

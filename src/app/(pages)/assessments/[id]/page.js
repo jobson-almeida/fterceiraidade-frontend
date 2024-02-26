@@ -2,8 +2,10 @@ import Link from "next/link"
 import CoursesClassroomsListEdit from "../../../components/courses-classrooms-list-edit"
 import QuestionsListEdit from "../../../components/questions-list-edit"
 
+const PORT = process.env.PORT || 3000;
+
 async function getAssessment(id) {
-  const response = await fetch(`http://localhost:3000/api/assessments/${id}`, {
+  const response = await fetch(`http://localhost:${PORT}/api/assessments/${id}`, {
     method: "GET",
     headers: {
       "Content-type": "application/json"
@@ -14,7 +16,7 @@ async function getAssessment(id) {
 }
 
 async function getCourses() {
-  const response = await fetch(`http://localhost:3000/api/courses`, {
+  const response = await fetch(`http://localhost:${PORT}/api/courses`, {
     method: "GET",
     headers: {
       "Content-type": "application/json"
@@ -25,7 +27,7 @@ async function getCourses() {
 }
 
 async function getClassrooms() {
-  const response = await fetch(`http://localhost:3000/api/classrooms`, {
+  const response = await fetch(`http://localhost:${PORT}/api/classrooms`, {
     method: "GET",
     headers: {
       "Content-type": "application/json"
@@ -36,7 +38,7 @@ async function getClassrooms() {
 }
 
 async function getQuestions() {
-  const response = await fetch(`http://localhost:3000/api/questions`, {
+  const response = await fetch(`http://localhost:${PORT}/api/questions`, {
     method: "GET",
     headers: {
       "Content-type": "application/json"

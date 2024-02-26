@@ -1,13 +1,7 @@
 import TeachersList from "../../components/teachers-list"
 
 async function getTeachers() {
-    const response = await fetch('http://localhost:3000/api/teachers', {
-        method: "GET",
-        headers: {
-            "Content-type": "application/json"
-        },
-        cache: "no-cache"
-    })
+    const response = await fetch('http://localhost:3000/api/teachers')
     return response.json()
 }
 

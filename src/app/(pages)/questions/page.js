@@ -3,6 +3,9 @@ import QuestionsList from "../../components/questions-list";
 
 async function getQuestions() {
   const response = await fetch('http://localhost:3000/api/questions')
+  if (!response.ok) {
+    return new Error("failed to load questions")
+  }
   return response.json()
 }
 

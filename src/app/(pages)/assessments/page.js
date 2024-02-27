@@ -2,9 +2,7 @@ import React from "react";
 import AssessmentsList from "../../components/assessments-list";
 
 async function getAssessments() {
-  const PORT = process.env.PORT || 3000;
-  const response = await fetch(`http://localhost:${PORT}/api/assessments`)
-
+  const response = await fetch('http://localhost:3000/api/assessments')
   if (!response.ok) {
     return new Error("failed to load assessments")
   }

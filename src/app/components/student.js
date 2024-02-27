@@ -1,7 +1,5 @@
-const PORT = process.env.PORT || 3000;
-
 async function getStudent(id) {
-  const response = await fetch(`http://localhost:${PORT}/api/students/${id}`, {
+  const response = await fetch(`http://localhost:3000/api/students/${id}`, {
     method: "GET",
     headers: {
       "Content-type": "application/json"

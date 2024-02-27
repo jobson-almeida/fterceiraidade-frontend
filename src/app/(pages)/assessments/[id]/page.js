@@ -3,7 +3,7 @@ import CoursesClassroomsListEdit from "../../../components/courses-classrooms-li
 import QuestionsListEdit from "../../../components/questions-list-edit"
 
 async function getAssessment(id) {
-  const response = await fetch(`http://localhost:3000/api/assessments/${id}`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/assessments/${id}`, {
     method: "GET",
     headers: {
       "Content-type": "application/json"
@@ -14,7 +14,11 @@ async function getAssessment(id) {
 }
 
 async function getCourses() {
+<<<<<<< HEAD
   const response = await fetch("http://localhost:3000/api/courses", {
+=======
+  const response = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/courses`, {
+>>>>>>> cf3f9e87f17fc78a27318538d0737bead45e5df8
     method: "GET",
     headers: {
       "Content-type": "application/json"
@@ -25,7 +29,11 @@ async function getCourses() {
 }
 
 async function getClassrooms() {
+<<<<<<< HEAD
   const response = await fetch("http://localhost:3000/api/classrooms", {
+=======
+  const response = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/classrooms`, {
+>>>>>>> cf3f9e87f17fc78a27318538d0737bead45e5df8
     method: "GET",
     headers: {
       "Content-type": "application/json"
@@ -36,7 +44,11 @@ async function getClassrooms() {
 }
 
 async function getQuestions() {
+<<<<<<< HEAD
   const response = await fetch("http://localhost:3000/api/questions", {
+=======
+  const response = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/questions`, {
+>>>>>>> cf3f9e87f17fc78a27318538d0737bead45e5df8
     method: "GET",
     headers: {
       "Content-type": "application/json"

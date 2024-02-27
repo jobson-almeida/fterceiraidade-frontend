@@ -1,5 +1,5 @@
 export async function getQuestion(id) {
-  const response = await fetch(`http://localhost:3000/api/questions/${id}`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/questions/${id}`, {
     method: "GET",
     headers: {
       "Content-type": "application/json"

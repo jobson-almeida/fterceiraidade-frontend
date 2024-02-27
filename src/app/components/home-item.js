@@ -1,7 +1,7 @@
 import Image from "next/image"
 
 async function getCourse(id) {
-  const response = await fetch(`http://localhost:3000/api/courses/${id}`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/courses/${id}`, {
     method: "GET",
     headers: {
       "Content-type": "application/json"

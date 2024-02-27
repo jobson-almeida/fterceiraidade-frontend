@@ -1,5 +1,5 @@
 async function getClassroom(id) {
-  const response = await fetch(`http://localhost:3000/api/classrooms/${id}`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/classrooms/${id}`, {
     method: "GET",
     headers: {
       "Content-type": "application/json"

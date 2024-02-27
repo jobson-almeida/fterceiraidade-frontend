@@ -14,7 +14,7 @@ async function getAssessment(id) {
 }
 
 async function getCourses() {
-  const response = await fetch(`http://localhost:3000/api/courses`, {
+  const response = await fetch("http://localhost:3000/api/courses", {
     method: "GET",
     headers: {
       "Content-type": "application/json"
@@ -25,7 +25,7 @@ async function getCourses() {
 }
 
 async function getClassrooms() {
-  const response = await fetch(`http://localhost:3000/api/classrooms`, {
+  const response = await fetch("http://localhost:3000/api/classrooms", {
     method: "GET",
     headers: {
       "Content-type": "application/json"
@@ -36,7 +36,7 @@ async function getClassrooms() {
 }
 
 async function getQuestions() {
-  const response = await fetch(`http://localhost:3000/api/questions`, {
+  const response = await fetch("http://localhost:3000/api/questions", {
     method: "GET",
     headers: {
       "Content-type": "application/json"

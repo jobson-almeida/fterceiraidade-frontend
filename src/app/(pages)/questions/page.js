@@ -2,10 +2,9 @@ import React from "react";
 import QuestionsList from "../../components/questions-list";
 
 async function getQuestions() {
-  const response = await fetch(`${process.env.APP_PUBLIC_URL}/api/questions`)
+  const response = await fetch(`${process.env.APP_BASE_URL}/api/questions`)
   if (!response.ok) {
-    //return new Error("failed to load questions")
-    return []
+    return new Error("failed to load questions")
   }
   return response.json()
 }

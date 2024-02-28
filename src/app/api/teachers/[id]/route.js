@@ -1,7 +1,7 @@
 import { revalidatePath, revalidateTag } from "next/cache";
 import { NextResponse } from "next/server";
 
-export const dynamic = "force-dynamic"
+
 
 const API_URL_BASE = process.env.API_URL_BASE;
 export async function GET(request, { params }) {

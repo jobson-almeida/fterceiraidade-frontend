@@ -2,7 +2,7 @@ import React from "react";
 import HomeList from "../../components/home-list";
 
 async function getCourses() {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/courses`)
+  const response = await fetch(`${process.env.APP_PUBLIC_URL}/api/courses`)
   if (!response.ok) {
     //return new Error("failed to load courses")
     return []

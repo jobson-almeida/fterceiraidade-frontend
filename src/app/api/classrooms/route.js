@@ -1,8 +1,9 @@
 import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 
-const API_URL_BASE = process.env.API_URL_BASE;
+export const dynamic = "force-dynamic"
 
+const API_URL_BASE = process.env.API_URL_BASE;
 export async function GET(request) {
     //  const course = await request.nextUrl.searchParams.get('course') 
     //const url = course !== null ? `http://localhost:8000/classrooms?course=${course}` : "http://localhost:8000/classrooms"

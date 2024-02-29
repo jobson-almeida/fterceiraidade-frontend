@@ -76,7 +76,7 @@ npm install
 
 &nbsp;
 
-### Criação do arquivo .env.local com url base
+### Criação do arquivo .env.local com urls
 
 ```dosini
 APP_BASE_URL=http://localhost:3000

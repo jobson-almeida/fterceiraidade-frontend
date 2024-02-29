@@ -1,5 +1,5 @@
 async function getTeacher(id) {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/teachers/${id}`, {
+  const response = await fetch(`${process.env.APP_BASE_URL}/api/teachers/${id}`, {
     method: "GET",
     headers: {
       "Content-type": "application/json"

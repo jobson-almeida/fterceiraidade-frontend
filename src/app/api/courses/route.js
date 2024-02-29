@@ -1,10 +1,8 @@
 import { revalidatePath, revalidateTag } from "next/cache";
 import { NextResponse } from "next/server";
 
-const API_URL_BASE = process.env.API_URL_BASE;
-
 export async function GET() {
-    const response = await fetch(`${API_URL_BASE}/courses`, {
+    const response = await fetch(`${process.env.API_BASE_URL}/courses`, {
         method: "GET",
         headers: {
             "Content-type": "application/json"
@@ -17,7 +15,7 @@ export async function GET() {
 
 export async function POST(request) {
     const { name, description } = await request.json()
-    const response = await fetch(`${API_URL_BASE}/courses`, {
+    const response = await fetch(`${process.env.API_BASE_URL}/courses`, {
         method: "POST",
         headers: {
             "Content-type": "application/json"

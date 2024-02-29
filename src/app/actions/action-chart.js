@@ -1,6 +1,6 @@
 "use server"
 export async function ActionChart(source) {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/${source}`, {
+    const response = await fetch(`${process.env.APP_BASE_URL}/api/${source}`, {
         method: "GET",
         headers: {
             "Content-type": "application/json",
@@ -8,7 +8,6 @@ export async function ActionChart(source) {
         cache: "no-cache"
     })
     const values = await response.json()
-
     //revalidateTag("/")
     //revalidatePath("/") 
     return values

@@ -1,4 +1,5 @@
 "use client"
+import React from "react";
 import ChartPerformance from "../components/chart-performance";
 
 export default function Home() {

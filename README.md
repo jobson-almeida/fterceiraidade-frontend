@@ -79,7 +79,8 @@ npm install
 ### Criação do arquivo .env.local com url base
 
 ```dosini
-API_URL_BASE=http://localhost:8000
+APP_BASE_URL=http://localhost:3000
+API_BASE_URL=http://localhost:8000
 ```
 
 &nbsp;

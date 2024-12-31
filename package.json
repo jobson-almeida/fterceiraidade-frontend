@@ -10,28 +10,28 @@
     "json-server": "json-server --watch api.json --port 8000"
   },
   "dependencies": {
-    "@floating-ui/react": "^0.26.9",
+    "@floating-ui/react": "^0.27.2",
     "@heroicons/react": "^2.1.1",
     "clsx": "^2.1.0",
     "deepmerge": "^4.3.1",
     "framer-motion": "^11.0.5",
     "json-server": "^0.17.4",
     "lodash": "^4.17.21",
-    "next": "14.1.0",
+    "next": "15.1.3",
     "path": "^0.12.7",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
     "react-hook-form": "^7.50.1",
     "recharts": "^2.12.1",
     "sharp": "^0.33.2",
     "simplebar-react": "^3.2.4",
     "tailwind-merge": "^2.2.1",
-    "uuid": "^9.0.1"
+    "uuid": "^11.0.3"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.17",
-    "eslint": "^8",
-    "eslint-config-next": "14.1.0",
+    "eslint": "^9.17.0",
+    "eslint-config-next": "15.1.3",
     "postcss": "^8",
     "tailwindcss": "^3.4.1"
   }

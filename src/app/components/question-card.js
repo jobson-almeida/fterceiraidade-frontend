@@ -8,32 +8,49 @@ import Image from 'next/image';
 export default function QuestionCard({ checkable = true, deletable = true, valiant = false, question }) {
   const [checked, setChecked] = useState(false);
   const [open, setOpen] = useState(false);
-  let questions_assessments = []
 
   const disable = question.type === "subjetiva" && !question.image;
+
+  const readStoredQuestions = () => {
+    if (typeof window === 'undefined') {
+      return [];
+    }
+
+    try {
+      const stored = window.localStorage.getItem('questions_assessments');
+      const parsed = stored ? JSON.parse(stored) : [];
+      return Array.isArray(parsed) ? parsed : [];
+    } catch {
+      return [];
+    }
+  };
+
+  const writeStoredQuestions = (ids) => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    try {
+      window.localStorage.setItem('questions_assessments', JSON.stringify(ids));
+    } catch {
+      // silent fail when storage is unavailable or quota is exceeded
+    }
+  };
 
   const toggleOpen = () => {
     setOpen((cur) => !cur)
   }
 
   const handleChange = id => () => {
-    setChecked(!checked);
+    const nextChecked = !checked;
+    setChecked(nextChecked);
 
-    const ISSERVER = typeof window === "undefined";
-    if (checked === false) {
-      if (!ISSERVER && localStorage.getItem("questions_assessments") === null) {
-        localStorage.setItem('questions_assessments', JSON.stringify([id]));
-      }
-      else if (!ISSERVER && localStorage.getItem("questions_assessments") !== null) {
-        questions_assessments.push(...JSON.parse(localStorage.getItem("questions_assessments")), id)
-        localStorage.setItem('questions_assessments', JSON.stringify(questions_assessments));
-      }
-    } else {
-      questions_assessments = []
-      questions_assessments.push(...JSON.parse(localStorage.getItem("questions_assessments")))
-      const filtered = questions_assessments.filter((value) => value !== id)
-      localStorage.setItem('questions_assessments', JSON.stringify(filtered));
-    }
+    const current = readStoredQuestions();
+    const nextValues = nextChecked
+      ? Array.from(new Set([...current, id]))
+      : current.filter((value) => value !== id);
+
+    writeStoredQuestions(nextValues);
   }
 
   return (

@@ -1,12 +1,9 @@
 import React from "react";
 import QuestionsList from "../../components/questions-list";
+import { safeJsonFetch } from "../../utils/safe-json-fetch";
 
 async function getQuestions() {
-  const response = await fetch(`${process.env.APP_BASE_URL}/api/questions`)
-  if (!response.ok) {
-    return new Error("failed to load questions")
-  }
-  return response.json()
+  return safeJsonFetch(`${process.env.APP_BASE_URL}/api/questions`, []);
 }
 
 export default async function QuestionPage() {

@@ -1,12 +1,9 @@
 import React from "react";
 import StudentsList from "../../components/students-list"
+import { safeJsonFetch } from "../../utils/safe-json-fetch";
 
 async function getStudents() {
-    const response = await fetch(`${process.env.APP_BASE_URL}/api/students`)
-    if (!response.ok) {
-        return new Error("failed to load students")
-    }
-    return response.json()
+    return safeJsonFetch(`${process.env.APP_BASE_URL}/api/students`, []);
 }
 
 export default async function StudentsPage() {

@@ -1,12 +1,9 @@
 import React from "react";
 import TeachersList from "../../components/teachers-list"
+import { safeJsonFetch } from "../../utils/safe-json-fetch";
 
 async function getTeachers() {
-    const response = await fetch(`${process.env.APP_BASE_URL}/api/teachers`)
-    if (!response.ok) {
-        return new Error("failed to load teachers")
-    }
-    return response.json()
+    return safeJsonFetch(`${process.env.APP_BASE_URL}/api/teachers`, []);
 }
 
 export default async function TeachersPage() {

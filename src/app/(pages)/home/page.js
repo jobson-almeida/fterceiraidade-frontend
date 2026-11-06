@@ -1,12 +1,9 @@
 import React from "react";
 import HomeList from "../../components/home-list";
+import { safeJsonFetch } from "../../utils/safe-json-fetch";
 
 async function getCourses() {
-  const response = await fetch(`${process.env.APP_BASE_URL}/api/courses`)
-  if (!response.ok) {
-    return new Error("failed to load courses")
-  }
-  return response.json()
+  return safeJsonFetch(`${process.env.APP_BASE_URL}/api/courses`, []);
 }
 
 export default async function HomePage() {

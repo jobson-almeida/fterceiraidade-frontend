@@ -1,12 +1,9 @@
 import React from "react";
 import ClassroomsList from "../../components/classroom-list";
+import { safeJsonFetch } from "../../utils/safe-json-fetch";
 
 async function getClassrooms() {
-  const response = await fetch(`${process.env.APP_BASE_URL}/api/classrooms`)
-  if (!response.ok) {
-    return new Error("failed to load classrooms")
-  }
-  return response.json()
+  return safeJsonFetch(`${process.env.APP_BASE_URL}/api/classrooms`, []);
 }
 
 export default async function ClassroomsPage() {

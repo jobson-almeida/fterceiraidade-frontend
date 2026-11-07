@@ -1,9 +1,12 @@
 "use client"
-import { getQuestion } from "../utils/get-question"
 import { useForm } from "react-hook-form"
 import FieldsArrayEdit from "./field-array-edit"
 
-export default function Question({ id }) {
+// export const preload = (id) => {
+//   void getQuestion(id)
+// }
+
+export default function Question({ initialValues }) {
   const {
     control,
     register,
@@ -11,7 +14,7 @@ export default function Question({ id }) {
     reset,
     formState: { isLoading },
   } = useForm({
-    defaultValues: async () => await getQuestion(id)
+    defaultValues: initialValues
   })
 
   const onSubmit = () => console.log('data');
@@ -31,7 +34,7 @@ export default function Question({ id }) {
                        focus:opacity-[0.85] focus:shadow-none
                        active:opacity-[0.85] active:shadow-none mr-1"
             type="button"
-            onClick={() => reset(datas)}>
+            onClick={() => reset(initialValues)}>
             reset
           </button>
             <button type="submit"

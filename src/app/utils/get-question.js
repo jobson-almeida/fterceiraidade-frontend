@@ -1,11 +1,15 @@
 export async function getQuestion(id) {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/questions/${id}`, {
+  const response = await fetch(`${process.env.API_BASE_URL}/questions/${id}`, {
     method: "GET",
     headers: {
       "Content-type": "application/json"
     },
-    cache: "no-cache"
+    cache: "no-store"
   })
-  const data = await response.json()
-  return data
+  if (!response.ok) {
+    throw new Error(`Failed to load question: ${response.status}`)
+  }
+
+  const question = await response.json()
+  return { questions: [question] }
 }

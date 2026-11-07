@@ -10,7 +10,7 @@ export async function GET(request, { params }) {
         }
     })
     const data = await response.json()
-    revalidateTag("students")
+    revalidateTag("students", "max")
     return NextResponse.json(data)
 }
 
@@ -24,7 +24,7 @@ export async function DELETE(request) {
         }
     })
     //const data = await response.json()
-    revalidatePath("/students")
+    revalidatePath("/students", "max")
     //return NextResponse.json(data)
     return new Response(null, { status: 204 })
 }

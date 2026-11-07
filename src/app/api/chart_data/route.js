@@ -10,6 +10,6 @@ export async function GET() {
     //cache: "no-cache" //ok
   })
   const data = await response.json()
-  revalidateTag("chart_data")
+  revalidateTag("chart_data", "max")
   return NextResponse.json(data)
 }

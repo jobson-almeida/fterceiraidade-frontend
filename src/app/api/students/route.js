@@ -10,7 +10,7 @@ export async function GET() {
         //cache: "no-cache" //ok
     })
     const data = await response.json()
-    revalidateTag("students")
+    revalidateTag("students", "max")
     return NextResponse.json(data)
 }
 
@@ -24,6 +24,6 @@ export async function POST(request) {
         body: JSON.stringify({ avatar, firstname, lastname, email, phone, address })
     })
     const data = await response.json()
-    revalidatePath("/students")
+    revalidatePath("/students", "max")
     return NextResponse.json(data)
 }

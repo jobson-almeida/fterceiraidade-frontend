@@ -9,7 +9,7 @@ export async function GET() {
         },
     })
     const data = await response.json()
-    revalidateTag("questions")
+    revalidateTag("questions", "max")
     return NextResponse.json(data)
 }
 
@@ -23,6 +23,6 @@ export async function POST(request) {
         body: JSON.stringify({ questioning, type, alternatives, answer, discipline })
     })
     const data = await response.json()
-    revalidatePath("/questions")
+    revalidatePath("/questions", "max")
     return NextResponse.json(data)
 }

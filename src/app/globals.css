@@ -1,12 +1,11 @@
-@tailwind base;
-@tailwind components;
+@import "tailwindcss";
+@config "../../tailwind.config.js";
 
 .component {
   background-color: rgb(255, 255, 255);
 }
 
-@tailwind utilities;
- 
+
 :root {
   --foreground-rgb: 244, 246, 248;
   --background-start-rgb: 244, 246, 248;
@@ -28,9 +27,8 @@
     --background-end-rgb: 244, 246, 248;
   }
 }
- 
+
 body {
   color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-end-rgb));  
+  background: rgb(var(--background-end-rgb));
 }
-

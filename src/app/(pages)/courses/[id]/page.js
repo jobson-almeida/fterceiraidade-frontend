@@ -1,6 +1,7 @@
 import Course, { preload } from "@/app/components/course"
 
 export default async function Page({ params }) {
-  preload(params.id)
-  return <Course id={params.id} />
+  const { id } = await params
+  preload(id)
+  return <Course id={id} />
 }

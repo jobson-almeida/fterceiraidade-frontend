@@ -52,7 +52,8 @@ export const preload = (id) => {
 }
 
 export default async function Page({ params }) {
-  const assessmentData = getAssessment(params.id)
+  const { id } = await params
+  const assessmentData = getAssessment(id)
   const coursesData = getCourses()
   const classroomsData = getClassrooms()
   const questionsData = getQuestions()

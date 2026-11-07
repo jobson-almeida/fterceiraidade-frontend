@@ -1,6 +1,7 @@
 import HomeItem, { preload } from "@/app/components/home-item"
 
 export default async function Page({ params }) {
-  preload(params.id)
-  return <HomeItem id={params.id} />
+  const { id } = await params
+  preload(id)
+  return <HomeItem id={id} />
 }

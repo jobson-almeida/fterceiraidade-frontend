@@ -5,7 +5,6 @@ import {
   LazyMotion,
   domAnimation,
 } from "framer-motion";
-import merge from "deepmerge";
 import { twMerge } from "tailwind-merge";
 
 export default function Collapse({ open, children, ref, ...rest }) {
@@ -20,7 +19,7 @@ export default function Collapse({ open, children, ref, ...rest }) {
     },
   };
 
-  const collapseAnimation = merge(animation, {});
+  const collapseAnimation = animation;
   const NewAnimatePresence = AnimatePresence;
 
   return (

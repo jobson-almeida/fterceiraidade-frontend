@@ -1,6 +1,7 @@
 import Classroom, { preload } from "@/app/components/classroom"
 
 export default async function Page({ params }) {
-  preload(params.id)
-  return <Classroom id={params.id} />
+  const { id } = await params
+  preload(id)
+  return <Classroom id={id} />
 }

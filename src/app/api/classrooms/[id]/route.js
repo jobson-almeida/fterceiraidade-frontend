@@ -2,7 +2,7 @@ import { revalidatePath, revalidateTag } from "next/cache";
 import { NextResponse } from "next/server";
 
 export async function GET(request, { params }) {
-    const id = params.id
+    const { id } = await params
     const response = await fetch(`${process.env.API_BASE_URL}/classrooms/${id}`, {
         method: "GET",
         headers: {
@@ -14,8 +14,8 @@ export async function GET(request, { params }) {
     return NextResponse.json(data)
 }
 
-export async function DELETE(request) {
-    const id = request.params.id
+export async function DELETE(request, { params }) {
+    const { id } = await params
     await fetch(`${process.env.API_BASE_URL}/classrooms/${id}`, {
         method: "DELETE",
         headers: {

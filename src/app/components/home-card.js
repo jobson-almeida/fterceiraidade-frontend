@@ -13,6 +13,7 @@ export default function HomeCard({ data }) {
                             width={0}
                             height={0}
                             sizes="100vw"
+                            loading="eager"
                             style={{
                                 width: "100%",
                                 height: "auto"

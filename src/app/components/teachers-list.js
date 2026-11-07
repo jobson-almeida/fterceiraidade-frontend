@@ -1,5 +1,5 @@
 "use client"
-import { useCallback, useMemo, useState } from "react"
+import { useCallback, useEffect, useMemo, useState } from "react"
 import { getComparator, stableSort } from "../utils/sortable"
 import Pagination from "./structural/pagination"
 import { TrashIcon, EyeIcon } from "@heroicons/react/24/solid"
@@ -17,6 +17,10 @@ export default function TeachersList({ data }) {
     const rowsPerPage = 5
     const count = Math.ceil(data.length / rowsPerPage)
 
+    useEffect(() => {
+        setPage((currentPage) => Math.min(currentPage, Math.max(count, 1)));
+    }, [count]);
+
     const handleRequestSort = (_, property) => {
         const isAsc = orderBy === property && order === 'asc';
         setOrder(isAsc ? 'desc' : 'asc');
@@ -31,6 +35,7 @@ export default function TeachersList({ data }) {
             });
             setValue(event.target.value)
             setSearchered(foundRows);
+            setPage(1);
         },
         [data]
     );
@@ -51,14 +56,14 @@ export default function TeachersList({ data }) {
 
     return (
         <>
-            <div className="fixed top-0 right-0 mt-5 mr-8 z-[9997]">
+            <div className="mb-4 flex justify-end">
                 <Link className="relative overflow-hidden align-middle select-none font-sans font-bold text-center uppercase py-3 px-6 rounded-lg 
                      transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none       
                    bg-[#546e7a] text-xs text-white shadow-md shadow-gray-500/10
                      hover:shadow-lg hover:shadow-gray-500/20 
                      focus:opacity-[0.85] focus:shadow-none 
                      active:opacity-[0.85] active:shadow-none"
-                    href={'/students/register'}>novo professor
+                    href={'/teachers/register'}>novo professor
                 </Link>
             </div>
             <Search onChangeSearch={handleSearch} onSearch={value} onPlaceHolder="Procurar professor" />
@@ -98,7 +103,7 @@ export default function TeachersList({ data }) {
                     </div>
                 </div>
                 <div className="relative flex items-center justify-end pr-4 pb-2" >
-                    {count > 0 && <Pagination count={count} onChangePage={handlePage} />}
+                    {count > 0 && <Pagination count={count} page={page} onChangePage={handlePage} />}
                 </div>
             </div >
         </>

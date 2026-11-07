@@ -23,17 +23,17 @@ export default function ClassroomsList({ data }) {
 
   return (
     <>
-      <div className="fixed top-0 right-0 mt-5 mr-8 z-[9997]">
-        <Link className="relative overflow-hidden align-middle select-none font-sans font-bold text-center uppercase py-3 px-6 rounded-lg 
-                       transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none       
-                     bg-[#546e7a] text-xs text-white shadow-md shadow-gray-500/10
-                       hover:shadow-lg hover:shadow-gray-500/20 
-                       focus:opacity-[0.85] focus:shadow-none 
-                       active:opacity-[0.85] active:shadow-none"
-          href={'/classrooms/register'}>nova turma
-        </Link>
-      </div>
-      <div className="flex flex-col items-center pt-14">
+      <div className="flex flex-col items-center">
+        <div className="mb-4 flex w-full justify-end">
+          <Link className="relative overflow-hidden align-middle select-none font-sans font-bold text-center uppercase py-3 px-6 rounded-lg 
+                         transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none       
+                       bg-[#546e7a] text-xs text-white shadow-md shadow-gray-500/10
+                         hover:shadow-lg hover:shadow-gray-500/20 
+                         focus:opacity-[0.85] focus:shadow-none 
+                         active:opacity-[0.85] active:shadow-none"
+            href={'/classrooms/register'}>nova turma
+          </Link>
+        </div>
         <div className="grid lgg:grid-cols-test3 lg:grid-cols-test2 md:grid-cols-test2 sm:grid-cols-test1 mt-3 gap-4">
           {items.map((classroom, i) => (
             <ClassroomCard key={i} data={classroom} />

@@ -3,7 +3,7 @@ import AssessmentsList from "../../components/assessments-list";
 import { safeJsonFetch } from "../../utils/safe-json-fetch";
 
 async function getAssessments() {
-  return safeJsonFetch(`${process.env.APP_BASE_URL}/api/assessments`, []);
+  return safeJsonFetch(`${process.env.API_BASE_URL}/assessments`, []);
 }
 
 export default async function AssessmentsPage() {

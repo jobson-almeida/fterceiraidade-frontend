@@ -1,5 +1,5 @@
 async function getStudent(id) {
-  const response = await fetch(`${process.env.APP_BASE_URL}/api/students/${id}`, {
+  const response = await fetch(`${process.env.API_BASE_URL}/students/${id}`, {
     method: "GET",
     headers: {
       "Content-type": "application/json"

@@ -23,8 +23,8 @@ export default function ClassroomsList({ data }) {
 
   return (
     <>
-      <div className="flex flex-col items-center">
-        <div className="mb-4 flex w-full justify-end">
+      <div className="flex flex-col items-center pt-14">
+        <div className="fixed top-0 right-0 mt-5 mr-8 z-[9997]">
           <Link className="relative overflow-hidden align-middle select-none font-sans font-bold text-center uppercase py-3 px-6 rounded-lg 
                          transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none       
                        bg-[#546e7a] text-xs text-white shadow-md shadow-gray-500/10

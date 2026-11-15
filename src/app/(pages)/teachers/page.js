@@ -3,7 +3,7 @@ import TeachersList from "../../components/teachers-list"
 import { safeJsonFetch } from "../../utils/safe-json-fetch";
 
 async function getTeachers() {
-    return safeJsonFetch(`${process.env.APP_BASE_URL}/api/teachers`, []);
+    return safeJsonFetch(`${process.env.API_BASE_URL}/teachers`, []);
 }
 
 export default async function TeachersPage() {

@@ -1,5 +1,11 @@
-import ChartPerformance from "@/app/components/chart-performance";
+import { Suspense } from "react";
+import ChartPerformanceData from "@/app/components/chart-performance-data";
+import ChartPerformanceLoading from "@/app/components/chart-performance-loading";
 
-export default async function Page() {
-    return <ChartPerformance source="chart_data" title="Desempenho da questão" />
+export default function Page() {
+    return (
+        <Suspense fallback={<ChartPerformanceLoading title="Desempenho da questão" />}>
+            <ChartPerformanceData title="Desempenho da questão" />
+        </Suspense>
+    );
 }

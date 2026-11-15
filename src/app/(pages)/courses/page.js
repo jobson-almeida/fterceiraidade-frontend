@@ -3,7 +3,7 @@ import CoursesList from "../../components/course-list";
 import { safeJsonFetch } from "../../utils/safe-json-fetch";
 
 async function getCourses() {
-  return safeJsonFetch(`${process.env.APP_BASE_URL}/api/courses`, []);
+  return safeJsonFetch(`${process.env.API_BASE_URL}/courses`, []);
 }
 
 export default async function CoursesPage() {

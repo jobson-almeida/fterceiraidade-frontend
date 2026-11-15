@@ -12,7 +12,7 @@ export const metadata = {
     alternates: {
         canonical: '/',
         languages: {
-            'en-US': '/en-US'
+            'pt-BR': '/pt-BR'
         },
     },
     description: 'FTerCeiraIdade'
@@ -20,7 +20,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="en" className={inter.className}>
+        <html lang="pt-BR" className={inter.className}>
             <body>
                 {children}
             </body>

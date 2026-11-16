@@ -4,7 +4,7 @@ import CoursesClassroomsListEdit from "../../../components/courses-classrooms-li
 import QuestionsListEdit from "../../../components/questions-list-edit"
 
 async function getAssessment(id) {
-  const response = await fetch(`${process.env.APP_BASE_URL}/api/assessments/${id}`, {
+  const response = await fetch(`${process.env.API_BASE_URL}/assessments?id=${encodeURIComponent(id)}`, {
     method: "GET",
     headers: {
       "Content-type": "application/json"
@@ -15,7 +15,7 @@ async function getAssessment(id) {
 }
 
 async function getCourses() {
-  const response = await fetch(`${process.env.APP_BASE_URL}/api/courses`, {
+  const response = await fetch(`${process.env.API_BASE_URL}/courses`, {
     method: "GET",
     headers: {
       "Content-type": "application/json"
@@ -26,7 +26,7 @@ async function getCourses() {
 }
 
 async function getClassrooms() {
-  const response = await fetch(`${process.env.APP_BASE_URL}/api/classrooms`, {
+  const response = await fetch(`${process.env.API_BASE_URL}/classrooms`, {
     method: "GET",
     headers: {
       "Content-type": "application/json"
@@ -37,7 +37,7 @@ async function getClassrooms() {
 }
 
 async function getQuestions() {
-  const response = await fetch(`${process.env.APP_BASE_URL}/api/questions`, {
+  const response = await fetch(`${process.env.API_BASE_URL}/questions`, {
     method: "GET",
     headers: {
       "Content-type": "application/json"

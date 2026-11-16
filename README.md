@@ -6,12 +6,14 @@ Aplicação web de gestão para uma iniciativa educacional voltada à inclusão 
 
 - Consultar listas e detalhes de estudantes, professores, cursos e turmas.
 - Consultar questões e avaliações.
+- Acessar o formulário de edição de questões e ajustar seus campos, respostas, alternativas e imagens.
 - Visualizar gráficos de desempenho relacionados a cursos, turmas, estudantes, questões e avaliações.
 - Usar uma API local baseada nos dados de `api.json`; não é necessário configurar um serviço externo para iniciar o projeto.
 
 ## Limitações
 
 - A API baseada em `json-server` é destinada ao desenvolvimento local, não a um ambiente de produção.
+- O botão de salvar no formulário de edição de questões (`/questions/[id]`) ainda não persiste as alterações.
 - A página `/questions/register` ainda é provisória e não implementa o cadastro de questões.
 
 ## Tecnologias
@@ -73,3 +75,7 @@ As rotas da aplicação Next.js encaminham as operações para a API simulada. O
 | Questões | `/api/questions` |
 | Avaliações | `/api/assessments` |
 | Dados dos gráficos | `/api/chart_data` |
+
+---
+
+Desenvolvido por Jobson Almeida.

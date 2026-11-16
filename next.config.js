@@ -1,6 +1,4 @@
 /** @type {import('next').NextConfig} */
-const DEFAULT_APP_BASE_URL = 'http://localhost:3000';
-const DEFAULT_API_BASE_URL = 'http://localhost:8000';
 
 const normalizeBaseUrl = (value, fallback) => {
   if (!value || typeof value !== 'string') {
@@ -16,35 +14,10 @@ const normalizeBaseUrl = (value, fallback) => {
 
 const nextConfig = {
   env: {
-    APP_BASE_URL: normalizeBaseUrl(process.env.APP_BASE_URL, DEFAULT_APP_BASE_URL),
-    API_BASE_URL: normalizeBaseUrl(process.env.API_BASE_URL, DEFAULT_API_BASE_URL),
+    APP_BASE_URL: process.env.APP_BASE_URL,
+    API_BASE_URL: process.env.API_BASE_URL,
   },
-  /*
-    async headers() {
-      return [{
-        source: '/', 
-        headers: [
-          {
-            key: 'x-hello',
-            value: 'world',
-          },
-        ],
-      },]
-    }*/
-
 }
 
-
-//  poweredByHeader: false,
-/* async redirects() {
-   return [
-     {
-       source: '/students',
-       destination: '/teachers',
-       permanent: true,
-     },
-   ]
- }*/
-
-
 module.exports = nextConfig
+

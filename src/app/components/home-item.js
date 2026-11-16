@@ -1,7 +1,7 @@
 import Image from "next/image"
 
 async function getCourse(id) {
-  const response = await fetch(`${process.env.APP_BASE_URL}/api/courses/${id}`, {
+  const response = await fetch(`${process.env.API_BASE_URL}/courses/${id}`, {
     method: "GET",
     headers: {
       "Content-type": "application/json"

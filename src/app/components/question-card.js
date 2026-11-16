@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from 'react';
 import Collapse from './structural/collapse';
 import Link from 'next/link';

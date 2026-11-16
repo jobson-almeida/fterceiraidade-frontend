@@ -35,7 +35,7 @@ export default function Question({ initialValues }) {
                        active:opacity-[0.85] active:shadow-none mr-1"
             type="button"
             onClick={() => reset(initialValues)}>
-            reset
+            restaurar valores iniciais
           </button>
             <button type="submit"
               className="relative overflow-hidden align-middle select-none font-sans font-bold text-center uppercase

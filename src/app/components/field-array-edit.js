@@ -81,7 +81,7 @@ export default function FieldsArrayEdit({ control, register }) {
                                active:opacity-[0.85] active:shadow-none"
                     type="button"
                     onClick={() => remove(index)}>
-                    Delete
+                    remover questão
                     <TrashIcon width={18} height={18} className="ml-1" />
                   </button>
                 }

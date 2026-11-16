@@ -21,15 +21,15 @@ export default function AlternativesArray({ nestIndex, control, register }) {
             />
 
             <button
-              className="h-[38px] w-[112px] items-center relative overflow-hidden align-middle select-none font-sans font-bold text-center uppercase 
-            py-3 px-6 rounded-lg transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none       
+              className="h-[38px] w-[176px] shrink-0 inline-flex items-center justify-center whitespace-nowrap relative overflow-hidden align-middle select-none font-sans font-bold text-center uppercase
+            py-3 px-2 rounded-lg transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none
                            bg-[#546e7a] text-xs text-white shadow-md shadow-gray-500/10
                              hover:shadow-lg hover:shadow-gray-500/20 
                              focus:opacity-[0.85] focus:shadow-none 
                              active:opacity-[0.85] active:shadow-none mx-2"
               type="button"
               onClick={() => remove(k)}>
-              Delete
+              remover alternativa
             </button>
           </div>
         );
@@ -47,7 +47,7 @@ export default function AlternativesArray({ nestIndex, control, register }) {
           append("alternativa")
         }
       >
-        alternativa
+        nova alternativa
       </button>
 
     </>
